@@ -16,13 +16,17 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('apellido'); // Nuevo campo para el apellido
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
+            $table->string('telefono')->nullable(); // Nuevo campo para el teléfono
             $table->string('password');
+            $table->boolean('activo')->default(true); // Campo para baja lógica
+            $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.
